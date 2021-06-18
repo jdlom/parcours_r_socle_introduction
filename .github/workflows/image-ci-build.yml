@@ -24,7 +24,7 @@ jobs:
     - name: Branch name
       run: |
         echo running on branch ${GITHUB_REF##*/} for ${{matrix.r_version}}
-        echo will push if succedd on ${{ github.repository.name }} 
+        echo will push if succedd on ${{ github.repository }} 
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v1
@@ -49,4 +49,4 @@ jobs:
         build-args: |
             R_VERSION=${{matrix.r_version}}
         tags: |
-          ghcr.io/${{ github.repository.name }}:${{matrix.r_version}} 
+          ghcr.io/${{ github.repository }}:${{matrix.r_version}} 
